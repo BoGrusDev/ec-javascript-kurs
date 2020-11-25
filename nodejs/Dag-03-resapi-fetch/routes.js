@@ -1,8 +1,6 @@
 // routes.js
-const { resolveSoa } = require('dns');
 const fs = require('fs');
 const url = require('url');
-const { brotliDecompressSync } = require('zlib');
 
 html = {
     render(path, res) {
@@ -44,33 +42,37 @@ json = {
             body.push(chunk);
         }).on('end', () => {
             body = Buffer.concat(body).toString();
-            console.log(body);
             const fileUrl = 'visitors.json';
-            // -- Övning
-            // var visitors = [];
-            // --  Läsa in filen
-            // --  Konveretras till JSON object
-            // -- Push med nya object (visitors) och lägger body() 
-
-            // visitors.push(JSON.parse(body));
-
-
-            fs.writeFile(fileUrl, body, (err) => {
-                let reply = {};
-                res.writeHead(200, {
-                    'Content-Type' : 'application/json; charset=utf-8'
-                });
+            var visitors = [];
+            fs.readFile(fileUrl, 'utf-8', function(err, data) {
                 if (err) {
-                    reply.code = -9;
-                    reply.message = "Något gick fel"; 
+                    // forsätt
                 }
                 else {
-                    reply.code = 1;
-                    reply.message = "Allt OK";
+                    visitors = JSON.parse(data);
                 }
-                res.write(JSON.stringify(reply));
-                res.end();
+                // console.log(body);
+                visitors.push(JSON.parse(body));
+                console.log(visitors);
 
+                fs.writeFile(fileUrl,JSON.stringify(visitors), (err) => {
+                    let reply = {};
+                    res.writeHead(200, {
+                        'Content-Type' : 'application/json; charset=utf-8'
+                    });
+                    if (err) {
+                        reply.code = -9;
+                        reply.message = "Något gick fel"; 
+                    }
+                    else {
+                        reply.code = 1;
+                        reply.message = "Allt OK";
+                        reply.number_of_visitors = visitors.length;
+
+                    }
+                    res.write(JSON.stringify(reply));
+                    res.end();
+                })
             })
         });
     }
@@ -88,6 +90,9 @@ module.exports = {
                     break;
                 case '/om-oss' :
                     html.render('./about-us.html', res);
+                    break;
+                case '/api/visitors' :
+                    json.render('./visitors.json', res);
                     break;
                 default :
                     res.writeHead(404, {
@@ -110,6 +115,9 @@ module.exports = {
                 case '/api/visitor-add' :
                     json.add(req, res);
                     break;
+                case '/api/visitors' :
+                        json.render('./visitors.json', res);
+                        break;
                 default :
                     res.writeHead(404);
                     res.end();
