@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 //  I xampp user är root, password är tomt, som standard
 const connection = mysql.createConnection({
-    host        : '127.0.0.1',
-    user        : 'root',
-    password    : '',
-    database    :  'nodejs'
+    host : 'shishi.oderland.com',
+    user : 'grusitse_ec_lisa',
+    password : 'eckurs2020',
+    database :  'grusitse_ec_lisa'
 });
 
 connection.connect();
