@@ -36,9 +36,45 @@ const customerAdd = (req, res) => {
     })
     .catch(error => console.log(error));
 }
+const customerUpdate = (req, res) => {
+    let customerData = {};
+    let customerId = req.body._id;
+    customerData.customer_name = req.body.name;
+    customerData.mobile = req.body.mobile;
+    customerData.salary = req.body.salary;
+    customerModel.update(customerId, customerData)
+    .then(function(data) {
+        res.send(data);
+    })
+    .catch(error => console.log(error));
+}
+
+const customerUpdate2 = (req, res) => {
+    let customerData = {};
+    let customerId = req.query.id;
+    customerData.customer_name = req.body.name;
+    customerData.mobile = req.body.mobile;
+    customerData.salary = req.body.salary;
+    customerModel.update(customerId, customerData)
+    .then(function(data) {
+        res.send(data);
+    })
+    .catch(error => console.log(error));
+}
+
+const customerUpdateDynamic = (req, res) => {
+    customerModel.updateDynamic(req.body)
+    .then(function(data) {
+        res.send(data);
+    })
+    .catch(error => console.log(error));
+}
 
 module.exports = {
     customerList,
     customerGet,
-    customerAdd
+    customerAdd,
+    customerUpdate,
+    customerUpdate2,
+    customerUpdateDynamic
 }

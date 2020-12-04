@@ -1,0 +1,74 @@
+[
+    {    
+        "customer_no" : "1001",
+        "name" :  "Andrea Sundquist",
+        "address" :	"Hagsvängen",
+        "postcode" : "841 92",
+        "city" :  "ÅNGE",
+        "mobile" : "0690-7391806",
+        "email" : "andrea.sundquist@mailmetrash.com",
+        "personal_id" :	"700717-6329",
+        "pin_code" : "7934",
+        "password" : "V5lb9A"
+    },
+    {
+        "customer_no" : "1002",
+        "name" :  "Stellan Hagström",
+        "address" : "Skinnebo",
+        "postcode" : "619 30",
+        "city" : "TROSA",
+        "mobile" :	"0156-1615156",
+        "email" : "stellan.hagstrom@dodgit.com",
+        "personal_id" :	"000830-8033",
+        "pin_code" : "9907",
+        "password" : "zjdGn"
+    },
+    {
+        "customer_no" : "1003",
+        "name" :  "Kasper Brodén",
+        "address" : "Östra harg mogenäs",
+        "postcode" : "603 85",
+        "city" : "NORRKÖPING",
+        "mobile" :	"011-5893627",
+        "email" : "kasper.broden@mailinater.com",
+        "personal_id" :	"941212-1411",
+        "pin_code" : "1068",
+        "password" : "CENQl"
+    },
+    {
+        "customer_no" : "1004",
+        "name" :  "Johny Backman",
+        "address" : "Gössäter anneberg",
+        "postcode" : "961 47",
+        "city" : "BODEN",
+        "mobile" :	"0921-6715388",
+        "email" : "johny.backman@spamherelots.com",
+        "personal_id":	"981013-1434",
+        "pin_code" : "9240",
+        "password" : "Z7mxeR"
+    },
+    {
+        "customer_no" : "1005",
+        "name" :  "Bengt-Olof Tillberg",
+        "address" : "Luntmakargatan",
+        "postcode" : "231 54",
+        "city" : "TRELLEBORG",
+        "mobile" :	"0410-1244537",
+        "email" : "bengt-olof.tillberg@mailmetrash.com",
+        "personal_id" :	"770430-1170",
+        "pin_code" : "8064",
+        "password" : "xpYYhb"
+    },
+    {
+        "customer_no" : "1006",
+        "name" :  "Vendla Lindstedt",
+        "address" : "Bondeka gård",
+        "postcode" : "714 31",
+        "city" : "KOPPARBERG",
+        "mobile" :	"0580-3917161",
+        "email" : "vendla.lindstedt@dodgit.com",
+        "personal_id" :	"580110-7029",
+        "pin-code" : "4591",
+        "password" : "eTbaqm"
+    }
+]

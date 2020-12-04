@@ -4,13 +4,64 @@
 // call: http://localhost:3000/customer/list
 
 /*
-    customer/list (GET)
-    customer/get (GET) http://127.0.0.1:3000/customer/get?id=2
-    customer/add (POST)
-    customer/update (POST)
-    customer/delete (POST)
-*/
+
+GET - customer/list
+http://localhost:3000/list
+
+GET - customer/get
+http://127.0.0.1:3000/customer/get?id=2
+
+POST - customer/add
+http://127.0.0.1:3000/customer/add
+    {    
+        "customer_name": "Pelleson  Pelle",
+        "Mobile" : "0701232211",
+        "salary": 20000
+    }
+    {
+        "code": 1,
+        "customer_id": 17
+    }
+
+POST - customer/update
+http://127.0.0.1:3000/customer/update
+    {    
+        "_id" : "17", 
+        "customer_name": "Palleson  Palle",
+        "Mobile" : "0701232211",
+        "salary": 20000
+    }
+    {
+        "code": 1
+    }
+
+
+POST - customer/update2
+http://127.0.0.1:3000/customer/update2?id=17
+{    
+    "customer_name": "Polleson  Polle",
+    "Mobile" : "0701232211",
+    "salary": 20000
+}
+{
+    "code": 1
+}
+
+POST - customer/updatedynamic
+http://127.0.0.1:3000/customer/updatedynamic
+    {   
+        "_id" : "12",  
+        "customer_name": "Rocksson  Rock",
+        "salary": 55000
+    }
+
+
+
+// npm install body-parser
+// npm install cors
+*/ 
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const customerRoutes = require('./routes/customerRoutes');
 const app = express();
@@ -18,6 +69,7 @@ const app = express();
 const host = '127.0.0.1';
 const port = 3000;
 
+app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/customer', customerRoutes);

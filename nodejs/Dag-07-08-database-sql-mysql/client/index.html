@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Klient</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="js/simple-helper.js"></script>
+    <script src="model/customer-model.js"></script>
+    <script src="view/customer-view.js"></script>
+    <script src="controller/customer-controller.js"></script>
+   <script>
+        
+        var Current = {};
+        const Model = new CustomerModel();
+        const View = new CustomerView();
+        const Controller = new CustomerController();
+
+        document.addEventListener('DOMContentLoaded', function() {
+           Controller.init();
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="main-container">
+            <div>
+               
+            </div>
+        </div>
+    
+        <div id="customer-list-container" style="display:none">
+            <div id="customer-list"></div>
+        
+        </div>
+    
+        <div id="customer-details-container" style="display:none">
+            <form>
+                 <p><label>Namn</label></p>
+                 <p><input id="customer-name"></p>
+                 <p><label>Mobil</label></p>
+                 <p><input id="mobile"></p>
+                 <p><label>Lön</label></p>
+                 <p><input id="salary"></p>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
