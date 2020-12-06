@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Klient</title>
+    <link rel="stylesheet" type="text/css" href="css/bulma.min.css">
+    <style>
+        .eNavAction {cursor:pointer}
+        .buttons {margin-top: 20px}
+        .input-name {max-width: 400px}
+        .input-mobile {max-width: 180px}
+        .input-salary {max-width: 1200px}
+    </style>
+    <script src="js/simple-helper.js"></script>
+    <script src="model/customer-model.js"></script>
+    <script src="view/customer-view.js"></script>
+    <script src="controller/customer-controller.js"></script>
+   <script>
+        
+        var Current = {};
+        const Model = new CustomerModel();
+        const View = new CustomerView();
+        const Controller = new CustomerController();
+
+        document.addEventListener('DOMContentLoaded', function() {
+           // Controller.init();
+           Helper.onClassClick('eNavAction',Controller.navAction);
+           Helper.onClassClick('eCommandAction',Controller.commandAction);
+        });
+
+    </script>
+</head>
+<body>
+    <nav class="navbar is-link" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <span style="font-weight:bold; font-size:20px">Klient</span>
+            </a>
+        </div>
+              
+        <div id="navbar" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="eNavAction navbar-item" action ="customer">
+                    Kunder
+                </a>
+                <a class="navbar-item" "valutor">
+                    Valutor (nästa del)
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="section">
+        <div id="main-container">
+            <div>
+               <h1 class="is-size-2" >Välkommen till Klient</h1>
+            </div>
+        </div>
+    
+        <div id="customer-list-container" style="display:none">
+            <div id="customer-list"></div>
+        
+        </div>
+    
+        <div id="customer-details-container" style="display:none">
+            <form>
+                <div class="field">
+                    <label class="label">Namn</label>
+                    <div class="control">
+                        <input class="input input-name" id="customer-name">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Mobil<label>
+                    <div class="control">
+                        <input class="input input-salary" id="mobile">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Lön</label>
+                    <div class="control">
+                        <input class="input input-salary" id="salary">
+                    </div>
+                </div>
+            </form>
+            <div class="buttons">
+                <button action="save" class="button is-info eCommandAction">Spara</button>
+                <button action="back-list" class="button is-gray eCommandAction">Tillbaka</button>    
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
